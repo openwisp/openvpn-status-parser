@@ -40,6 +40,7 @@ jobs:
           python -m pip install --editable .
 
       - name: QA checks
+        if: matrix.python-version == '3.13'
         run: ./run-qa-checks
 
       - name: Tests
