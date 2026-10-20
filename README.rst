@@ -9,7 +9,9 @@ supports both legacy and current numeric OpenVPN timestamps.
 
 .. summary-end
 
-It supports Python 3.10 and newer.
+This project is a fork of the original openvpn-status_ repository.
+
+It supports Python 3.11 and newer.
 
 Installation
 ------------
@@ -71,14 +73,6 @@ Now we could parse log file with this library:
 
 More details are in the `API reference`_.
 
-Contributing
-------------
-
-If you want to report bugs or request features, please feel free to open
-issues on GitHub_.
-
-Of course, pull requests are always welcome.
-
 .. _api reference: https://openvpn-status-parser.readthedocs.io/en/latest/api.html
 
-.. _github: https://github.com/openwisp/openvpn-status-parser/issues
+.. _openvpn-status: https://github.com/sgares/openvpn-status
