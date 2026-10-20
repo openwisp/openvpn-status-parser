@@ -1,10 +1,39 @@
 Changelog
 =========
 
-Version 0.3.0 [unreleased]
+Version 0.3.0 [2026-10-20]
 --------------------------
 
-Work in progress.
+Changes
+~~~~~~~
+
+Other changes
++++++++++++++
+
+- Renamed package to OpenVPN Status Reader
+
+  The distribution and repository now use openvpn-status-reader while the
+  openvpn_status import remains compatible.
+
+- Added compatibility with OpenVPN 2.5+.
+
+Dependencies
+++++++++++++
+
+- Removed Python 2 compatibility
+
+  Python 3.11 is the minimum supported version, so six and the
+  compatibility constructs are no longer needed.
+
+- Upgraded all dependencies.
+
+Bugfixes
+~~~~~~~~
+
+- Rejected malformed status schemas
+
+  Malformed status logs now raise ParsingError instead of uncaught
+  KeyError.
 
 Version 0.2.2 [2023-01-11]
 --------------------------
