@@ -1,6 +1,31 @@
 OpenVPN Status Parser
 =====================
 
+.. image:: https://github.com/openwisp/openvpn-status-parser/workflows/OpenWISP%20CI%20Build/badge.svg?branch=master
+    :target: https://github.com/openwisp/openvpn-status-parser/actions?query=workflow%3A%22OpenWISP+CI+Build%22
+    :alt: CI build status
+
+.. image:: https://coveralls.io/repos/openwisp/openvpn-status-parser/badge.svg
+    :target: https://coveralls.io/r/openwisp/openvpn-status-parser
+
+.. image:: https://img.shields.io/librariesio/release/github/openwisp/openvpn-status-parser
+    :target: https://libraries.io/github/openwisp/openvpn-status-parser#repository_dependencies
+    :alt: Dependency monitoring
+
+.. image:: https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square
+    :target: https://gitter.im/openwisp/general
+
+.. image:: https://badge.fury.io/py/openvpn-status-parser.svg
+    :target: https://badge.fury.io/py/openvpn-status-parser
+
+.. image:: https://pepy.tech/badge/openvpn-status-parser
+    :target: https://pepy.tech/project/openvpn-status-parser
+    :alt: downloads
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://pypi.org/project/black/
+    :alt: code style: black
+
 .. summary-begin
 
 **openvpn-status-parser** is an OpenWISP-maintained Python library for
@@ -9,7 +34,9 @@ supports both legacy and current numeric OpenVPN timestamps.
 
 .. summary-end
 
-It supports Python 3.10 and newer.
+This project is a fork of the original openvpn-status_ repository.
+
+It supports Python 3.11 and newer.
 
 Installation
 ------------
@@ -71,14 +98,6 @@ Now we could parse log file with this library:
 
 More details are in the `API reference`_.
 
-Contributing
-------------
-
-If you want to report bugs or request features, please feel free to open
-issues on GitHub_.
-
-Of course, pull requests are always welcome.
-
 .. _api reference: https://openvpn-status-parser.readthedocs.io/en/latest/api.html
 
-.. _github: https://github.com/openwisp/openvpn-status-parser/issues
+.. _openvpn-status: https://github.com/sgares/openvpn-status

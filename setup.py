@@ -23,7 +23,6 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
@@ -37,10 +36,10 @@ setup(
         "Topic :: Utilities",
     ],
     install_requires=[
-        "six>=1.9.0",
-        "humanize",
-        "netaddr",
+        "six>=1.17,<2",
+        "humanize>=4.16,<5",
+        "netaddr>=1.3,<2",
     ],
-    python_requires=">=3.10",
+    python_requires=">=3.11",
     platforms=["Any"],
 )
