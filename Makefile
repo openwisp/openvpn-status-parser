@@ -13,4 +13,4 @@ doc-html:
 	$(PYTHON) -m sphinx -b html docs docs/_build/html
 
 doc-clean:
-	$(MAKE) -C docs clean
+	rm -rf docs/_build
