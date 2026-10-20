@@ -1,42 +1,43 @@
-|Build Status| |Coverage Status| |PyPI Version| |Wheel Status|
-
-OpenVPN Status
-==============
+OpenVPN Status Parser
+=====================
 
 .. summary-begin
 
-**openvpn-status** is a Python library. It parses OpenVPN status log and turns
-it into Python data structure for you.
+**openvpn-status-parser** is an OpenWISP-maintained Python library for
+parsing OpenVPN status-version-1 logs into Python data structures. It
+supports both legacy and current numeric OpenVPN timestamps.
 
 .. summary-end
 
-It is compatible with Python `2.7`, `3.6` to `3.10`, and PyPy.
-
+It supports Python 3.10 and newer.
 
 Installation
 ------------
 
 .. code-block:: bash
 
-    pip install openvpn-status
+    pip install openvpn-status-parser
 
 Don't forget to put it in ``setup.py`` / ``requirements.txt``.
-
 
 Getting Started
 ---------------
 
-You could configure your OpenVPN server to log for client status. In usual it
-could be achieved by adding ``status /path/to/openvpn-status.log`` line to
-``/etc/openvpn/openvpn.conf``. For example::
+You could configure your OpenVPN server to log for client status. In usual
+it could be achieved by adding ``status /path/to/openvpn-status.log`` line
+to ``/etc/openvpn/openvpn.conf``. For example:
+
+::
 
     proto udp
     port 1194
     dev tun0
     status /var/run/openvpn-status.log
 
-Once OpenVPN server running, the log file will be created and written. It looks
-like::
+Once OpenVPN server running, the log file will be created and written. It
+looks like:
+
+::
 
     OpenVPN CLIENT LIST
     Updated,Thu Jun 18 08:12:15 2015
@@ -57,20 +58,18 @@ Now we could parse log file with this library:
 
     from openvpn_status import parse_status
 
-    with open('/var/run/openvpn-status.log') as logfile:
+    with open("/var/run/openvpn-status.log") as logfile:
         status = parse_status(logfile.read())
 
     print(status.updated_at)  # datetime.datetime(2015, 6, 18, 8, 12, 15)
 
-    foo_client = status.client_list['169.254.0.1']
+    foo_client = status.client_list["169.254.0.1"]
     print(foo_client.common_name)  # foo@example.com
     print(foo_client.bytes_received)  # 334.9 kB
     print(foo_client.bytes_sent)  # 2.0 MB
     print(int(foo_client.bytes_sent))  # 2097152
 
-
 More details are in the `API reference`_.
-
 
 Contributing
 ------------
@@ -80,19 +79,6 @@ issues on GitHub_.
 
 Of course, pull requests are always welcome.
 
+.. _api reference: https://openvpn-status-parser.readthedocs.io/en/latest/api.html
 
-.. _`API reference`: https://openvpn-status.readthedocs.io/en/latest/api.html
-.. _GitHub: https://github.com/tonyseek/openvpn-status/issues
-
-.. |Build Status| image:: https://img.shields.io/travis/tonyseek/openvpn-status.svg
-   :target: https://travis-ci.org/tonyseek/openvpn-status
-   :alt: Build Status
-.. |Coverage Status| image:: https://img.shields.io/coveralls/tonyseek/openvpn-status.svg
-   :target: https://coveralls.io/r/tonyseek/openvpn-status
-   :alt: Coverage Status
-.. |Wheel Status| image:: https://img.shields.io/pypi/wheel/openvpn-status.svg
-   :target: https://warehouse.python.org/project/openvpn-status
-   :alt: Wheel Status
-.. |PyPI Version| image:: https://img.shields.io/pypi/v/openvpn-status.svg
-   :target: https://pypi.python.org/pypi/openvpn-status
-   :alt: PyPI Version
+.. _github: https://github.com/openwisp/openvpn-status-parser/issues

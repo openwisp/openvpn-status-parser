@@ -1,0 +1,15 @@
+[tool.isort]
+known_first_party = ["openvpn_status"]
+default_section = "THIRDPARTY"
+line_length = 88
+multi_line_output = 3
+use_parentheses = true
+include_trailing_comma = true
+force_grid_wrap = 0
+
+[tool.coverage.run]
+source = ["openvpn_status"]
+omit = ["*/tests/*"]
+
+[tool.docstrfmt]
+extend_exclude = ["**/*.py"]

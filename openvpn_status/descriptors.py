@@ -23,7 +23,7 @@ class LabelProperty(object):
             return value
         else:
             names = (owner.__name__, self.__name__)
-            raise AttributeError('%r object has no attribute %r' % names)
+            raise AttributeError("%r object has no attribute %r" % names)
 
     def __set__(self, instance, value):
         if self.input_type is not None:
@@ -39,16 +39,16 @@ _missing = object()
 
 def name_descriptors(cls):
     for name, value in iter_descriptors(cls):
-        if getattr(value, '__name__', _missing) is None:
+        if getattr(value, "__name__", _missing) is None:
             value.__name__ = name
     return cls
 
 
 def iter_descriptors(cls):
     for name, value in iteritems(cls.__dict__):
-        if name.startswith('__'):
+        if name.startswith("__"):
             continue
-        if getattr(value, '__get__', None) or getattr(value, '__set__', None):
+        if getattr(value, "__get__", None) or getattr(value, "__set__", None):
             yield name, value
 
 

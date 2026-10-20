@@ -2,8 +2,8 @@ from __future__ import absolute_import
 
 from six import Iterator, next, text_type
 
-from .models import Status, Client, Routing, GlobalStats
-from .descriptors import iter_descriptors, AssignmentValueError
+from .descriptors import AssignmentValueError, iter_descriptors
+from .models import Client, GlobalStats, Routing, Status
 
 
 class LogParser(Iterator):
@@ -13,9 +13,9 @@ class LogParser(Iterator):
     called once in the same instance of parser.
     """
 
-    list_separator = u','
-    line_separator = u'\n'
-    terminator = u'END'
+    list_separator = ","
+    line_separator = "\n"
+    terminator = "END"
 
     def __init__(self, lines):
         self.lines = iter(lines)
@@ -48,30 +48,30 @@ class LogParser(Iterator):
         try:
             line = next(self)
         except StopIteration:
-            raise ParsingError('expected %r but got end of input' % content)
+            raise ParsingError("expected %r but got end of input" % content)
         if line != content:
-            raise ParsingError('expected %r but got %r' % (content, line))
+            raise ParsingError("expected %r but got %r" % (content, line))
 
     def expect_list(self):
         try:
             line = next(self)
         except StopIteration:
-            raise ParsingError('expected list but got end of input')
+            raise ParsingError("expected list but got end of input")
         splited = line.split(self.list_separator)
         if len(splited) == 1:
-            raise ParsingError('expected list but got %r' % line)
+            raise ParsingError("expected list but got %r" % line)
         return splited
 
     def expect_tuple(self, name):
         try:
             line = next(self)
         except StopIteration:
-            raise ParsingError('expected 2-tuple but got end of input')
+            raise ParsingError("expected 2-tuple but got end of input")
         splited = line.split(self.list_separator)
         if len(splited) != 2:
-            raise ParsingError('expected 2-tuple but got %r' % line)
+            raise ParsingError("expected 2-tuple but got %r" % line)
         if splited[0] != name:
-            raise ParsingError('expected 2-tuple starting with %r' % name)
+            raise ParsingError("expected 2-tuple starting with %r" % name)
         return splited[1]
 
     def parse(self):
@@ -83,25 +83,30 @@ class LogParser(Iterator):
         try:
             return self._parse()
         except AssignmentValueError as e:
-            msg = text_type(e) \
-                .encode('ascii', 'backslashreplace') \
-                .decode('ascii')
-            raise ParsingError('expected valid format: %s' % msg)
+            msg = text_type(e).encode("ascii", "backslashreplace").decode("ascii")
+            raise ParsingError("expected valid format: %s" % msg)
 
     def _parse(self):
         status = Status()
         self.expect_line(Status.client_list.label)
 
         status.updated_at = self.expect_tuple(Status.updated_at.label)
-        status.client_list.update({
-            text_type(c.real_address): c
-            for c in self._parse_fields(Client, Status.routing_table.label)})
-        status.routing_table.update({
-            text_type(r.virtual_address): r
-            for r in self._parse_fields(Routing, Status.global_stats.label)})
+        status.client_list.update(
+            {
+                text_type(c.real_address): c
+                for c in self._parse_fields(Client, Status.routing_table.label)
+            }
+        )
+        status.routing_table.update(
+            {
+                text_type(r.virtual_address): r
+                for r in self._parse_fields(Routing, Status.global_stats.label)
+            }
+        )
         status.global_stats = GlobalStats()
         status.global_stats.max_bcast_mcast_queue_len = self.expect_tuple(
-            GlobalStats.max_bcast_mcast_queue_len.label)
+            GlobalStats.max_bcast_mcast_queue_len.label
+        )
 
         self.expect_line(self.terminator)
         return status
@@ -109,10 +114,10 @@ class LogParser(Iterator):
     def _parse_fields(self, cls, next_line):
         labels = self.expect_list()
         descriptors = iter_descriptors(cls)
-        label_to_name = {
-            descriptor.label: name for name, descriptor in descriptors}
+        label_to_name = {descriptor.label: name for name, descriptor in descriptors}
         index_to_name = {
-            index: label_to_name[label] for index, label in enumerate(labels)}
+            index: label_to_name[label] for index, label in enumerate(labels)
+        }
 
         while True:
             try:
