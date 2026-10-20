@@ -43,4 +43,11 @@ jobs:
         run: ./run-qa-checks
 
       - name: Tests
-        run: pytest
+        run: pytest --cov-report=xml
+
+      - name: Upload coverage
+        if: matrix.python-version == '3.13' && success()
+        uses: coverallsapp/github-action@v2
+        with:
+          format: cobertura
+          github-token: ${{ secrets.GITHUB_TOKEN }}
