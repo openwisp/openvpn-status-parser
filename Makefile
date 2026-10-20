@@ -1,9 +1,6 @@
-.PHONY: build clean doc-html doc-clean
+.PHONY: clean doc-html doc-clean
 
 PYTHON ?= python3
-
-build:
-	$(PYTHON) setup.py sdist bdist_wheel
 
 clean:
 	rm -rf dist
