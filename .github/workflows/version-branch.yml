@@ -7,7 +7,7 @@ on:
 
 jobs:
   version-branch:
-    uses: openwisp/openwisp-utils/.github/workflows/reusable-version-branch.yml@a36b30b0c20637fef4fe8eb434ef27615feeaa74 # master
+    uses: openwisp/openwisp-utils/.github/workflows/reusable-version-branch.yml@b97e9ec935cd163ebc1667065c45f94bcd240ff7 # master
     with:
       module_name: openvpn_status.version
       install_package: true
