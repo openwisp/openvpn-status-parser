@@ -46,8 +46,19 @@ jobs:
         run: pytest --cov-report=xml
 
       - name: Upload coverage
-        if: matrix.python-version == '3.13' && success()
+        if: success()
         uses: coverallsapp/github-action@v2
         with:
+          parallel: true
           format: cobertura
+          flag-name: python-${{ matrix.python-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  coveralls:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Finalize Coveralls build
+        uses: coverallsapp/github-action@v2
+        with:
+          parallel-finished: true

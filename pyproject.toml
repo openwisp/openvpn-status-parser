@@ -8,6 +8,7 @@ include_trailing_comma = true
 force_grid_wrap = 0
 
 [tool.coverage.run]
+branch = true
 source = ["openvpn_status"]
 omit = ["*/tests/*"]
 
