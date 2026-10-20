@@ -2,7 +2,7 @@ import datetime
 import ipaddress
 
 from netaddr import EUI
-from pytest import fixture, raises
+from pytest import fixture, mark, raises
 
 from openvpn_status.parser import LogParser, ParsingError
 
@@ -100,3 +100,42 @@ def test_parser_with_syntax_errors(broken_status):
 
     error = catch_syntax_error(7)
     assert error.value.args[0].startswith("expected valid format: time data ")
+
+
+@mark.parametrize(
+    "labels,values",
+    [
+        (
+            [
+                "Common Name",
+                "Real Address",
+                "Bytes Received",
+                "Bytes Sent",
+                "Unexpected",
+            ],
+            ["foo", "10.10.10.10:49502", "1", "1", "value"],
+        ),
+        (
+            [
+                "Common Name",
+                "Real Address",
+                "Bytes Received",
+                "Bytes Sent",
+                "Connected Since",
+            ],
+            ["foo", "10.10.10.10:49502", "1", "1", "2026-10-20 17:48:08", "extra"],
+        ),
+    ],
+)
+def test_parser_rejects_invalid_field_schema(labels, values):
+    content = "\n".join(
+        [
+            "OpenVPN CLIENT LIST",
+            "Updated,2026-10-20 17:48:08",
+            ",".join(labels),
+            ",".join(values),
+        ]
+    )
+
+    with raises(ParsingError, match="invalid fields"):
+        LogParser.fromstring(content).parse()

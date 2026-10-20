@@ -113,6 +113,8 @@ class LogParser(Iterator):
         labels = self.expect_list()
         descriptors = iter_descriptors(cls)
         label_to_name = {descriptor.label: name for name, descriptor in descriptors}
+        if len(labels) != len(label_to_name) or set(labels) != set(label_to_name):
+            raise ParsingError("invalid fields for %s" % cls.__name__)
         index_to_name = {
             index: label_to_name[label] for index, label in enumerate(labels)
         }
@@ -129,6 +131,8 @@ class LogParser(Iterator):
                 else:
                     break
 
+            if len(values) != len(index_to_name):
+                raise ParsingError("invalid fields for %s" % cls.__name__)
             instance = cls()
             for index, value in enumerate(values):
                 name = index_to_name[index]
