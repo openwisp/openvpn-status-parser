@@ -1,6 +1,31 @@
 OpenVPN Status Parser
 =====================
 
+.. image:: https://github.com/openwisp/openvpn-status-parser/workflows/OpenWISP%20CI%20Build/badge.svg?branch=master
+    :target: https://github.com/openwisp/openvpn-status-parser/actions?query=workflow%3A%22OpenWISP+CI+Build%22
+    :alt: CI build status
+
+.. image:: https://coveralls.io/repos/openwisp/openvpn-status-parser/badge.svg
+    :target: https://coveralls.io/r/openwisp/openvpn-status-parser
+
+.. image:: https://img.shields.io/librariesio/release/github/openwisp/openvpn-status-parser
+    :target: https://libraries.io/github/openwisp/openvpn-status-parser#repository_dependencies
+    :alt: Dependency monitoring
+
+.. image:: https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square
+    :target: https://gitter.im/openwisp/general
+
+.. image:: https://badge.fury.io/py/openvpn-status-parser.svg
+    :target: https://badge.fury.io/py/openvpn-status-parser
+
+.. image:: https://pepy.tech/badge/openvpn-status-parser
+    :target: https://pepy.tech/project/openvpn-status-parser
+    :alt: downloads
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://pypi.org/project/black/
+    :alt: code style: black
+
 .. summary-begin
 
 **openvpn-status-parser** is an OpenWISP-maintained Python library for
