@@ -292,6 +292,6 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    "https://docs.python.org/3": None,
-    "https://netaddr.readthedocs.io/en/latest/": None,
+    "python": ("https://docs.python.org/3", None),
+    "netaddr": ("https://netaddr.readthedocs.io/en/latest/", None),
 }

@@ -60,6 +60,12 @@ def test_parse_vaddr(text, virtual_addr):
     assert text_type(text) == text_type(virtual_addr)
 
 
+def test_parse_vaddr_with_interface_index():
+    assert parse_vaddr("28:d2:44:d4:e6:ea@5") == EUI(
+        "28:d2:44:d4:e6:ea", dialect=mac_unix
+    )
+
+
 @mark.parametrize(
     "text,humanized",
     [
