@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from pytest import raises
 
 import openvpn_status

@@ -1,11 +1,8 @@
-from __future__ import absolute_import
-
 from datetime import datetime
 from ipaddress import IPv4Address, IPv4Network, IPv6Address, IPv6Network
 
 from netaddr import EUI, mac_unix
 from pytest import mark
-from six import text_type
 
 from openvpn_status.utils import (
     FileSize,
@@ -42,7 +39,7 @@ def test_parse_time(text, time):
 )
 def test_parse_peer(text, peer):
     assert parse_peer(text) == peer
-    assert text_type(text) == text_type(peer)
+    assert str(text) == str(peer)
 
 
 @mark.parametrize(
@@ -57,7 +54,7 @@ def test_parse_peer(text, peer):
 )
 def test_parse_vaddr(text, virtual_addr):
     assert parse_vaddr(text) == virtual_addr
-    assert text_type(text) == text_type(virtual_addr)
+    assert str(text) == str(virtual_addr)
 
 
 def test_parse_vaddr_with_interface_index():
@@ -75,4 +72,4 @@ def test_parse_vaddr_with_interface_index():
     ],
 )
 def test_parse_filesize(text, humanized):
-    assert text_type(parse_filesize(text)) == humanized
+    assert str(parse_filesize(text)) == humanized

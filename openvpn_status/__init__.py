@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from .parser import ParsingError
 from .shortcuts import parse_status
 

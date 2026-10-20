@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from collections import OrderedDict
 
 from .descriptors import LabelProperty, name_descriptors
@@ -7,7 +5,7 @@ from .utils import parse_filesize, parse_peer, parse_time, parse_vaddr
 
 
 @name_descriptors
-class Status(object):
+class Status:
     """The OpenVPN status model."""
 
     client_list = LabelProperty("OpenVPN CLIENT LIST", OrderedDict)
@@ -17,7 +15,7 @@ class Status(object):
 
 
 @name_descriptors
-class Client(object):
+class Client:
     """The OpenVPN client model."""
 
     common_name = LabelProperty("Common Name")
@@ -28,7 +26,7 @@ class Client(object):
 
 
 @name_descriptors
-class Routing(object):
+class Routing:
     """The OpenVPN routing model."""
 
     virtual_address = LabelProperty("Virtual Address", input_type=parse_vaddr)
@@ -38,7 +36,7 @@ class Routing(object):
 
 
 @name_descriptors
-class GlobalStats(object):
+class GlobalStats:
     """The OpenVPN global stats model."""
 
     max_bcast_mcast_queue_len = LabelProperty(

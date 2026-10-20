@@ -1,11 +1,8 @@
-from __future__ import absolute_import
-
 import datetime
 import ipaddress
 
 from netaddr import EUI
 from pytest import fixture, raises
-from six import text_type
 
 from openvpn_status.parser import LogParser, ParsingError
 
@@ -32,8 +29,8 @@ def test_parser(openvpn_status):
 
     client = status.client_list["10.10.10.10:49502"]
     assert client.common_name == "foo@example.com"
-    assert text_type(client.real_address) == "10.10.10.10:49502"
-    assert text_type(client.real_address.host) == "10.10.10.10"
+    assert str(client.real_address) == "10.10.10.10:49502"
+    assert str(client.real_address.host) == "10.10.10.10"
     assert client.real_address.port == 49502
     assert client.connected_since == datetime.datetime(2015, 6, 18, 4, 23, 3)
     assert client.bytes_received == 334948
@@ -41,30 +38,30 @@ def test_parser(openvpn_status):
 
     tun_routing = status.routing_table["192.168.255.134"]
     assert isinstance(tun_routing.virtual_address, ipaddress.IPv4Address)
-    assert text_type(tun_routing.virtual_address) == "192.168.255.134"
+    assert str(tun_routing.virtual_address) == "192.168.255.134"
     assert tun_routing.common_name == "foo@example.com"
-    assert text_type(tun_routing.real_address) == "10.10.10.10:49502"
+    assert str(tun_routing.real_address) == "10.10.10.10:49502"
     assert tun_routing.last_ref == datetime.datetime(2015, 6, 18, 8, 12, 9)
 
     tap_routing = status.routing_table["22:1d:63:bf:62:38"]
     assert isinstance(tap_routing.virtual_address, EUI)
-    assert text_type(tap_routing.virtual_address) == "22:1d:63:bf:62:38"
+    assert str(tap_routing.virtual_address) == "22:1d:63:bf:62:38"
     assert tap_routing.common_name == "tap@example.com"
-    assert text_type(tap_routing.real_address) == "10.0.0.100:55712"
+    assert str(tap_routing.real_address) == "10.0.0.100:55712"
     assert tap_routing.last_ref == datetime.datetime(2017, 10, 19, 20, 14, 19)
 
     ccd_routing = status.routing_table["10.200.0.0/16"]
     assert isinstance(ccd_routing.virtual_address, ipaddress.IPv4Network)
-    assert text_type(ccd_routing.virtual_address) == "10.200.0.0/16"
+    assert str(ccd_routing.virtual_address) == "10.200.0.0/16"
     assert ccd_routing.common_name == "baz@example.com"
-    assert text_type(ccd_routing.real_address) == "10.10.10.10:63414"
+    assert str(ccd_routing.real_address) == "10.10.10.10:63414"
     assert ccd_routing.last_ref == datetime.datetime(2015, 6, 18, 8, 12, 9)
 
     ccd_v6_routing = status.routing_table["2001:db8::1000/124"]
     assert isinstance(ccd_v6_routing.virtual_address, ipaddress.IPv6Network)
-    assert text_type(ccd_v6_routing.virtual_address) == "2001:db8::1000/124"
+    assert str(ccd_v6_routing.virtual_address) == "2001:db8::1000/124"
     assert ccd_v6_routing.common_name == "baz@example.com"
-    assert text_type(ccd_v6_routing.real_address) == "10.10.10.10:63414"
+    assert str(ccd_v6_routing.real_address) == "10.10.10.10:63414"
     assert ccd_v6_routing.last_ref == datetime.datetime(2015, 6, 18, 8, 12, 9)
 
 

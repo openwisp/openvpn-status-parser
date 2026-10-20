@@ -1,6 +1,4 @@
-from __future__ import absolute_import
-
-from six import Iterator, next, text_type
+from collections.abc import Iterator
 
 from .descriptors import AssignmentValueError, iter_descriptors
 from .models import Client, GlobalStats, Routing, Status
@@ -83,7 +81,7 @@ class LogParser(Iterator):
         try:
             return self._parse()
         except AssignmentValueError as e:
-            msg = text_type(e).encode("ascii", "backslashreplace").decode("ascii")
+            msg = str(e).encode("ascii", "backslashreplace").decode("ascii")
             raise ParsingError("expected valid format: %s" % msg)
 
     def _parse(self):
@@ -93,13 +91,13 @@ class LogParser(Iterator):
         status.updated_at = self.expect_tuple(Status.updated_at.label)
         status.client_list.update(
             {
-                text_type(c.real_address): c
+                str(c.real_address): c
                 for c in self._parse_fields(Client, Status.routing_table.label)
             }
         )
         status.routing_table.update(
             {
-                text_type(r.virtual_address): r
+                str(r.virtual_address): r
                 for r in self._parse_fields(Routing, Status.global_stats.label)
             }
         )

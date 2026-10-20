@@ -36,7 +36,6 @@ setup(
         "Topic :: Utilities",
     ],
     install_requires=[
-        "six>=1.17,<2",
         "humanize>=4.16,<5",
         "netaddr>=1.3,<2",
     ],

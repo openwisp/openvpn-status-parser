@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 import collections
 import datetime
 import ipaddress
@@ -7,7 +5,6 @@ import re
 
 from humanize.filesize import naturalsize
 from netaddr import EUI, mac_unix
-from six import python_2_unicode_compatible as unicode_compatible
 
 DATETIME_FORMAT_OPENVPN_V2_5 = "%Y-%m-%d %H:%M:%S"
 DATETIME_FORMAT_OPENVPN_V2_4 = "%a %b %d %H:%M:%S %Y"
@@ -56,7 +53,6 @@ def parse_filesize(size):
     return FileSize(size)
 
 
-@unicode_compatible
 class PeerAddress(collections.namedtuple("PeerAddress", "host port")):
     """The address of peer entity.
 
@@ -71,7 +67,6 @@ class PeerAddress(collections.namedtuple("PeerAddress", "host port")):
         return "{0}:{1}".format(self.host, self.port)
 
 
-@unicode_compatible
 class FileSize(int):
     """The size of bytes."""
 

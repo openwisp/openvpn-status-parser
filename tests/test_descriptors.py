@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from pytest import fixture, raises
 
 from openvpn_status.descriptors import LabelProperty, iter_descriptors, name_descriptors
@@ -8,7 +6,7 @@ from openvpn_status.descriptors import LabelProperty, iter_descriptors, name_des
 @fixture
 def foo_class():
     @name_descriptors
-    class Foo(object):
+    class Foo:
         foo = LabelProperty("Foo")
         bar = LabelProperty("Bar", default=lambda: 0, input_type=int)
         baz = property(lambda self: self.bar)

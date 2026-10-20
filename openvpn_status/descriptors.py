@@ -1,9 +1,4 @@
-from __future__ import absolute_import
-
-from six import iteritems
-
-
-class LabelProperty(object):
+class LabelProperty:
     """The property with label name."""
 
     def __init__(self, label, default=None, input_type=None):
@@ -45,7 +40,7 @@ def name_descriptors(cls):
 
 
 def iter_descriptors(cls):
-    for name, value in iteritems(cls.__dict__):
+    for name, value in cls.__dict__.items():
         if name.startswith("__"):
             continue
         if getattr(value, "__get__", None) or getattr(value, "__set__", None):
