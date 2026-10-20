@@ -1,5 +1,5 @@
-OpenVPN Status
-==============
+OpenVPN Status Reader
+=====================
 
 .. include:: ../README.rst
     :start-after: .. summary-begin

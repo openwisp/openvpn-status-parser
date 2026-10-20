@@ -10,7 +10,7 @@
 
 ## Reference to Existing Issue
 
-<!-- Please [open a new issue](https://github.com/openwisp/openvpn-status-parser/issues/new/choose) if there isn't an existing issue yet. -->
+<!-- Please [open a new issue](https://github.com/openwisp/openvpn-status-reader/issues/new/choose) if there isn't an existing issue yet. -->
 
 Closes #<issue-number>.
 

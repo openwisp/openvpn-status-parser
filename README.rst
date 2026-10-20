@@ -1,25 +1,25 @@
-OpenVPN Status Parser
+OpenVPN Status Reader
 =====================
 
-.. image:: https://github.com/openwisp/openvpn-status-parser/actions/workflows/ci.yml/badge.svg?branch=master
-    :target: https://github.com/openwisp/openvpn-status-parser/actions/workflows/ci.yml
+.. image:: https://github.com/openwisp/openvpn-status-reader/actions/workflows/ci.yml/badge.svg?branch=master
+    :target: https://github.com/openwisp/openvpn-status-reader/actions/workflows/ci.yml
     :alt: CI build status
 
-.. image:: https://coveralls.io/repos/openwisp/openvpn-status-parser/badge.svg
-    :target: https://coveralls.io/r/openwisp/openvpn-status-parser
+.. image:: https://coveralls.io/repos/openwisp/openvpn-status-reader/badge.svg
+    :target: https://coveralls.io/r/openwisp/openvpn-status-reader
 
-.. image:: https://img.shields.io/librariesio/release/github/openwisp/openvpn-status-parser
-    :target: https://libraries.io/github/openwisp/openvpn-status-parser#repository_dependencies
+.. image:: https://img.shields.io/librariesio/release/github/openwisp/openvpn-status-reader
+    :target: https://libraries.io/github/openwisp/openvpn-status-reader#repository_dependencies
     :alt: Dependency monitoring
 
 .. image:: https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square
     :target: https://gitter.im/openwisp/general
 
-.. image:: https://badge.fury.io/py/openvpn-status-parser.svg
-    :target: https://badge.fury.io/py/openvpn-status-parser
+.. image:: https://badge.fury.io/py/openvpn-status-reader.svg
+    :target: https://badge.fury.io/py/openvpn-status-reader
 
-.. image:: https://pepy.tech/badge/openvpn-status-parser
-    :target: https://pepy.tech/project/openvpn-status-parser
+.. image:: https://pepy.tech/badge/openvpn-status-reader
+    :target: https://pepy.tech/project/openvpn-status-reader
     :alt: downloads
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
@@ -28,13 +28,14 @@ OpenVPN Status Parser
 
 .. summary-begin
 
-**openvpn-status-parser** is an OpenWISP-maintained Python library for
+**openvpn-status-reader** is an OpenWISP-maintained Python library for
 parsing OpenVPN status-version-1 logs into Python data structures. It
 supports both legacy and current numeric OpenVPN timestamps.
 
 .. summary-end
 
-This project is a fork of the original openvpn-status_ repository.
+This project is a fork of the original openvpn-status_ repository. It
+retains the ``openvpn_status`` import namespace for compatibility.
 
 It supports Python 3.11 and newer.
 
@@ -43,7 +44,7 @@ Installation
 
 .. code-block:: bash
 
-    pip install openvpn-status-parser
+    pip install openvpn-status-reader
 
 Don't forget to put it in ``setup.py`` / ``requirements.txt``.
 
@@ -98,6 +99,6 @@ Now we could parse log file with this library:
 
 More details are in the `API reference`_.
 
-.. _api reference: https://openvpn-status-parser.readthedocs.io/en/latest/api.html
+.. _api reference: https://openvpn-status-reader.readthedocs.io/en/latest/api.html
 
 .. _openvpn-status: https://github.com/sgares/openvpn-status

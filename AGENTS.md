@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-`openvpn-status-parser` parses OpenVPN status-version-1 logs into Python data
+`openvpn-status-reader` parses OpenVPN status-version-1 logs into Python data
 structures.
 
 Core code lives in `openvpn_status/`:

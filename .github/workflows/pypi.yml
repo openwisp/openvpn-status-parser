@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/openvpn-status-parser
+      url: https://pypi.org/p/openvpn-status-reader
     permissions:
       contents: read
       id-token: write

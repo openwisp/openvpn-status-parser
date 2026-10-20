@@ -3,7 +3,7 @@
 from openvpn_status.version import get_version
 
 #
-# openvpn-status documentation build configuration file, created by
+# openvpn-status-reader documentation build configuration file, created by
 # sphinx-quickstart on Fri Jun 19 16:32:44 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -44,7 +44,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "openvpn-status-parser"
+project = "openvpn-status-reader"
 copyright = "2015-2026, Jiangge Zhang and OpenWISP"
 author = "Jiangge Zhang and OpenWISP"
 
@@ -114,7 +114,7 @@ html_theme = "alabaster"
 html_theme_options = {
     "logo": "logo.svg",
     "github_user": "openwisp",
-    "github_repo": "openvpn-status-parser",
+    "github_repo": "openvpn-status-reader",
     "github_button": "true",
 }
 
@@ -211,7 +211,7 @@ html_sidebars = {
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "openvpn-status-doc"
+htmlhelp_basename = "openvpn-status-reader-doc"
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -223,8 +223,8 @@ latex_elements = {}
 latex_documents = [
     (
         master_doc,
-        "openvpn-status.tex",
-        "openvpn-status Documentation",
+        "openvpn-status-reader.tex",
+        "openvpn-status-reader Documentation",
         "Jiangge Zhang",
         "manual",
     ),
@@ -256,7 +256,13 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, "openvpn-status", "openvpn-status Documentation", [author], 1)
+    (
+        master_doc,
+        "openvpn-status-reader",
+        "openvpn-status-reader Documentation",
+        [author],
+        1,
+    )
 ]
 
 # If true, show URL addresses after external links.
@@ -271,10 +277,10 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "openvpn-status",
-        "openvpn-status Documentation",
+        "openvpn-status-reader",
+        "openvpn-status-reader Documentation",
         author,
-        "openvpn-status",
+        "openvpn-status-reader",
         "One line description of project.",
         "Miscellaneous",
     ),

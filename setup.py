@@ -12,11 +12,11 @@ with open("README.rst") as readme:
 
 
 setup(
-    name="openvpn-status-parser",
+    name="openvpn-status-reader",
     version=get_version(),
-    url="https://github.com/openwisp/openvpn-status-parser",
+    url="https://github.com/openwisp/openvpn-status-reader",
     author="OpenWISP",
-    author_email="info@openwisp.org",
+    author_email="support@openwisp.org",
     description="Parse OpenVPN status logs in Python",
     long_description=long_description,
     packages=find_packages(),
