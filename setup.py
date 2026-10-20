@@ -1,4 +1,11 @@
+import sys
+
 from setuptools import find_packages, setup
+
+sys.path.insert(0, "openvpn_status")
+from version import get_version
+
+sys.path.remove("openvpn_status")
 
 with open("README.rst") as readme:
     long_description = readme.read().strip()
@@ -6,7 +13,7 @@ with open("README.rst") as readme:
 
 setup(
     name="openvpn-status-parser",
-    version="0.3.0",
+    version=get_version(),
     url="https://github.com/openwisp/openvpn-status-parser",
     author="OpenWISP",
     author_email="info@openwisp.org",
