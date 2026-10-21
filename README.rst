@@ -8,13 +8,6 @@ OpenVPN Status Reader
 .. image:: https://coveralls.io/repos/openwisp/openvpn-status-reader/badge.svg
     :target: https://coveralls.io/r/openwisp/openvpn-status-reader
 
-.. image:: https://img.shields.io/librariesio/release/github/openwisp/openvpn-status-reader
-    :target: https://libraries.io/github/openwisp/openvpn-status-reader#repository_dependencies
-    :alt: Dependency monitoring
-
-.. image:: https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square
-    :target: https://gitter.im/openwisp/general
-
 .. image:: https://badge.fury.io/py/openvpn-status-reader.svg
     :target: https://badge.fury.io/py/openvpn-status-reader
 
