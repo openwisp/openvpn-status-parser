@@ -5,9 +5,15 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   version-branch:
-    uses: openwisp/openwisp-utils/.github/workflows/reusable-version-branch.yml@b97e9ec935cd163ebc1667065c45f94bcd240ff7 # master
+    uses: openwisp/openwisp-utils/.github/workflows/reusable-version-branch.yml@3497e3fbd42dff2a59f566184a1bf8e1b2ab57ea
     with:
       module_name: openvpn_status.version
+      client_id: ${{ vars.OPENWISP_BOT_CLIENT_ID }}
       install_package: true
+    secrets:
+      private_key: ${{ secrets.OPENWISP_BOT_PRIVATE_KEY }}
